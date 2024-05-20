@@ -33,8 +33,9 @@ jobs:
             ${{ runner.os }}-build-commit-
       - name: Build artifacts
         run: ./gradlew build
-      - name: Upload artifacts
-        uses: actions/upload-artifact@v2
-        with:
+      - name: Upload a Build Artifact
+       uses: actions/upload-artifact@v4.3.3
+            
+       with:
           name: sodium-artifacts-${{ steps.ref.outputs.branch }}
           path: build/libs/*.jar
